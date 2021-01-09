@@ -28,11 +28,12 @@ func solution(_ numbers:[Int]) -> [Int] {
     for i in 0 ..< numbers.count {
         for j in i + 1 ..< numbers.count {
             let num = numbers[i] + numbers[j]
-            if !result.contains(num) {
+            if !result.contains(num){
                 result.append(num)
             }
         }
     }
+    
     return result.sorted()
 }
 
