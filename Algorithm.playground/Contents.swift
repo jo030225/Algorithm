@@ -71,25 +71,25 @@ import UIKit
 //    }
 //}
 
-func solution(_ s:String) -> String {
-    let array = Array(s)
-    if(s.count % 2 == 0){
-        return String(array[(s.count / 2) - 1...(s.count / 2)])
-    } else {
-        return String(array[s.count / 2])
-    }
-}
-
 //func solution(_ s:String) -> String {
 //    let array = Array(s)
-//
-//    if s.count % 2 != 0 {
-//        return String(array[(s.count / 2)])
-//    } else {
+//    if(s.count % 2 == 0){
 //        return String(array[(s.count / 2) - 1...(s.count / 2)])
+//    } else {
+//        return String(array[s.count / 2])
 //    }
 //}
-
-solution("12345")
-
-
+//
+////func solution(_ s:String) -> String {
+////    let array = Array(s)
+////
+////    if s.count % 2 != 0 {
+////        return String(array[(s.count / 2)])
+////    } else {
+////        return String(array[(s.count / 2) - 1...(s.count / 2)])
+////    }
+////}
+//
+//solution("12345")
+//
+//
