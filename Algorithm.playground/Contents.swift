@@ -58,18 +58,37 @@ import UIKit
 //
 //}
 
+//func solution(_ s:String) -> String {
+//    if(s.count % 2 == 0){
+//        let start = s.count / 2 - 1
+//        let end = s.count / 2
+//        let result = String(describing: "\(Array(s)[start])\(Array(s)[end])")
+//        return result
+//    } else {
+//        let start = s.count / 2
+//        let result = String(describing: "\(Array(s)[start])")
+//        return result
+//    }
+//}
+
 func solution(_ s:String) -> String {
+    let array = Array(s)
     if(s.count % 2 == 0){
-        let start = s.count / 2 - 1
-        let end = s.count / 2
-        let result = String(describing: "\(Array(s)[start])\(Array(s)[end])")
-        return result
+        return String(array[(s.count / 2) - 1...(s.count / 2)])
     } else {
-        let start = s.count / 2
-        let result = String(describing: "\(Array(s)[start])")
-        return result
+        return String(array[s.count / 2])
     }
 }
+
+//func solution(_ s:String) -> String {
+//    let array = Array(s)
+//
+//    if s.count % 2 != 0 {
+//        return String(array[(s.count / 2)])
+//    } else {
+//        return String(array[(s.count / 2) - 1...(s.count / 2)])
+//    }
+//}
 
 solution("12345")
 
