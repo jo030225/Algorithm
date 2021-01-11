@@ -21,20 +21,56 @@ import UIKit
 
 
 // 프로그래머스 두 개 뽑아서 더하기
+//
+//func solution(_ numbers:[Int]) -> [Int] {
+//    var result = [Int]()
+//
+//    for i in 0 ..< numbers.count {
+//        for j in i + 1 ..< numbers.count {
+//            let num = numbers[i] + numbers[j]
+//            if !result.contains(num){
+//                result.append(num)
+//            }
+//        }
+//    }
+//
+//    return result.sorted()
+//}
+//
+//solution([2,1,3,4,1])
 
-func solution(_ numbers:[Int]) -> [Int] {
-    var result = [Int]()
+// 프로그래머스 가운데 글자 가져오기
 
-    for i in 0 ..< numbers.count {
-        for j in i + 1 ..< numbers.count {
-            let num = numbers[i] + numbers[j]
-            if !result.contains(num){
-                result.append(num)
-            }
-        }
+//func solution(_ s:String) -> String {
+//    if(s.count % 2 == 0){
+//        let startTarget = s.count / 2 - 1
+//        let endTarget = s.count / 2
+//        let start: String.Index = s.index(s.startIndex, offsetBy: startTarget)
+//        let end: String.Index = s.index(s.startIndex, offsetBy: endTarget)
+//        let result = String(s[start...end])
+//        return result
+//    } else {
+//        let startTarget = s.count / 2
+//        let start: String.Index = s.index(s.startIndex, offsetBy: startTarget)
+//        let result = String(s[start])
+//        return result
+//    }
+//
+//}
+
+func solution(_ s:String) -> String {
+    if(s.count % 2 == 0){
+        let start = s.count / 2 - 1
+        let end = s.count / 2
+        let result = String(describing: "\(Array(s)[start])\(Array(s)[end])")
+        return result
+    } else {
+        let start = s.count / 2
+        let result = String(describing: "\(Array(s)[start])")
+        return result
     }
-    
-    return result.sorted()
 }
 
-solution([2,1,3,4,1])
+solution("12345")
+
+
