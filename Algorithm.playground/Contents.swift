@@ -116,8 +116,9 @@ import UIKit
 
 // 문자열을 정수로 바꾸기
 
-func solution(_ s:String) -> Int {
-    return Int(s)!
-}
+//func solution(_ s:String) -> Int {
+//    return Int(s)!
+//}
+//
+//solution("+1234")
 
-solution("+1234")
