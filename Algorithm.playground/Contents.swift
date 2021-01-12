@@ -97,19 +97,27 @@ import UIKit
 
 // 두 정수 사이의 합
 
-func solution(_ a:Int, _ b:Int) -> Int64 {
-    var result = 0
-    if a <= b {
-        for i in a...b {
-            result += i
-        }
-    } else {
-        for i in b...a {
-            result += i
-        }
-    }
-    
-    return Int64(result)
+//func solution(_ a:Int, _ b:Int) -> Int64 {
+//    var result = 0
+//    if a <= b {
+//        for i in a...b {
+//            result += i
+//        }
+//    } else {
+//        for i in b...a {
+//            result += i
+//        }
+//    }
+//
+//    return Int64(result)
+//}
+//
+//solution(5, 3)
+
+// 문자열을 정수로 바꾸기
+
+func solution(_ s:String) -> Int {
+    return Int(s)!
 }
 
-solution(5, 3)
+solution("+1234")
