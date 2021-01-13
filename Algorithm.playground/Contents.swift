@@ -122,3 +122,17 @@ import UIKit
 //
 //solution("+1234")
 
+
+// 서울에서 김서방 찾기
+func solution(_ seoul:[String]) -> String {
+    var a: Int = 0
+    for i in seoul {
+        a += 1
+        if i == "Kim" {
+            return "김서방은 \(a - 1)에 있다"
+        }
+    }
+    return ""
+}
+
+solution(["Jane","asd", "Jue", "ew", "Kimasd", "Kim", "ㅁㄴㅇㄹㅁ"])
