@@ -137,18 +137,38 @@ import UIKit
 //
 //solution(["Jane","asd", "Jue", "ew", "Kimasd", "Kim", "ㅁㄴㅇㄹㅁ"])
 
-// 프로그래머스 수박수박수박수박수박수?
+// 프로그래머스 수박수박수박수박수?
 
-func solution(_ n:Int) -> String {
-    var result = [String]()
-    for i in 0 ..< n {
-        if i % 2 == 0 {
-            result.append("수")
-        } else {
-            result.append("박")
+//func solution(_ n:Int) -> String {
+//    var result = [String]()
+//    for i in 0 ..< n {
+//        if i % 2 == 0 {
+//            result.append("수")
+//        } else {
+//            result.append("박")
+//        }
+//    }
+//    return result.joined()
+//}
+//
+//solution(5)
+
+// 프로그래머스 모의고사
+
+func solution(_ answers:[Int]) -> [Int] {
+    var first = [Int]()
+    var second = [Int]()
+    var third = [Int]()
+
+    for i in 0 ..< 10000 {
+        if i % 8 == 0{
+            second.append(5)
         }
+        
+        
     }
-    return result.joined()
+
+    return []
 }
 
-solution(5)
+
