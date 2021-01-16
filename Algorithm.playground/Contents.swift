@@ -181,15 +181,9 @@ func solution(_ answers:[Int]) -> [Int] {
         if answers[i] == resultFirst[i] {
             firstCount += 1
         }
-    }
-    
-    for i in 0 ..< answers.count {
         if answers[i] == resultSecond[i] {
             secondCount += 1
         }
-    }
-    
-    for i in 0 ..< answers.count {
         if answers[i] == resultThird[i] {
             thirdCount += 1
         }
