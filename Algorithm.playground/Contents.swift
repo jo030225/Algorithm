@@ -167,6 +167,10 @@ func solution(_ answers:[Int]) -> [Int] {
     var resultSecond = [Int]()
     var resultThird = [Int]()
     
+    var firstCount = 0
+    var secondCount = 0
+    var thirdCount = 0
+    
     for i in 0 ..< answers.count {
         resultFirst.append(contentsOf: first[0...9])
         resultSecond.append(contentsOf: second[0...7])
@@ -175,20 +179,38 @@ func solution(_ answers:[Int]) -> [Int] {
     
     for i in 0 ..< answers.count {
         if answers[i] == resultFirst[i] {
-            
-        } else if answers[i] == resultSecond[i] {
-            
-        } else if answers[i] == resultThird[i] {
-            
+            firstCount += 1
         }
     }
     
-    print("\(resultThird) 3")
-    print("\(resultSecond) 2")
-    print("\(resultFirst) 1")
-
-    return []
+    for i in 0 ..< answers.count {
+        if answers[i] == resultSecond[i] {
+            secondCount += 1
+        }
+    }
+    
+    for i in 0 ..< answers.count {
+        if answers[i] == resultThird[i] {
+            thirdCount += 1
+        }
+    }
+    
+    if firstCount > secondCount && firstCount > thirdCount {
+        return [1]
+    } else if secondCount > firstCount && secondCount > thirdCount {
+        return [2]
+    } else if thirdCount > firstCount && thirdCount > secondCount {
+        return [3]
+    } else if firstCount == secondCount && secondCount == thirdCount {
+        return [1, 2, 3]
+    } else if firstCount == thirdCount {
+        return [1, 3]
+    } else if secondCount == thirdCount {
+        return [2, 3]
+    } else {
+        return [1, 2]
+    }
 }
 
 
-solution([1])
+solution([1,3,2,4,2])
