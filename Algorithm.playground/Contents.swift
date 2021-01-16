@@ -155,20 +155,40 @@ import UIKit
 
 // 프로그래머스 모의고사
 
+// 1번  1,2,3,4,5
+// 2번  2,1,2,3,2,4,2,5
+// 3번  3,3,1,1,2,2,4,4,5,5
 func solution(_ answers:[Int]) -> [Int] {
-    var first = [Int]()
-    var second = [Int]()
-    var third = [Int]()
-
-    for i in 0 ..< 10000 {
-        if i % 8 == 0{
-            second.append(5)
-        }
-        
-        
+    let first = [1,2,3,4,5,1,2,3,4,5]
+    let second = [2,1,2,3,2,4,2,5]
+    let third = [3,3,1,1,2,2,4,4,5,5]
+    
+    var resultFirst = [Int]()
+    var resultSecond = [Int]()
+    var resultThird = [Int]()
+    
+    for i in 0 ..< answers.count {
+        resultFirst.append(contentsOf: first[0...9])
+        resultSecond.append(contentsOf: second[0...7])
+        resultThird.append(contentsOf: third[0...9])
     }
+    
+    for i in 0 ..< answers.count {
+        if answers[i] == resultFirst[i] {
+            
+        } else if answers[i] == resultSecond[i] {
+            
+        } else if answers[i] == resultThird[i] {
+            
+        }
+    }
+    
+    print("\(resultThird) 3")
+    print("\(resultSecond) 2")
+    print("\(resultFirst) 1")
 
     return []
 }
 
 
+solution([1])
