@@ -212,8 +212,19 @@ import UIKit
 // 프로그래머스 나누어 떨어지는 숫자 배열
 
 func solution(_ arr:[Int], _ divisor:Int) -> [Int] {
+    var result = [Int]()
     
+    for i in 0 ..< arr.count {
+        if arr[i] % divisor == 0 {
+            result.append(arr[i])
+        }
+    }
     
-    
-    return []
+    if result.count == 0 {
+        return [-1]
+    } else {
+        return result.sorted()
+    }
 }
+
+solution([2, 36, 1, 3], 1)
