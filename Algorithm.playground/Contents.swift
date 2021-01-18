@@ -248,13 +248,23 @@ import UIKit
 //solution(123)
 
 // 프로그래머스 문자열 다루기 기본
-func solution(_ s:String) -> Bool {
-    if Int(s) == nil {
-        return false
-    } else if Array(s).count == 4 || Array(s).count == 6 {
-        return true
-    }
-    return false
+//func solution(_ s:String) -> Bool {
+//    if Int(s) == nil {
+//        return false
+//    } else if Array(s).count == 4 || Array(s).count == 6 {
+//        return true
+//    }
+//    return false
+//}
+//
+//solution("123456a")
+
+// 프로그래머스 시저 암호
+
+func solution(_ s:String, _ n:Int) -> String {
+    return ''
 }
 
-solution("123456a")
+let a = "A"
+let b = (UnicodeScalar(a)!.value + 1)
+print(UnicodeScalar(b))
