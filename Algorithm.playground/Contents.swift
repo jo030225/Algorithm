@@ -231,18 +231,30 @@ import UIKit
 
 // 프로그래머스 자릿수 더하기
 
-func solution(_ n:Int) -> Int
-{
-    var answer:Int = 0
-    
-    var num = n
-    
-    while num > 0 {
-        answer += num%10
-        num = num/10
+//func solution(_ n:Int) -> Int
+//{
+//    var answer:Int = 0
+//    
+//    var num = n
+//    
+//    while num > 0 {
+//        answer += num%10
+//        num = num/10
+//    }
+//    
+//    return answer
+//}
+//
+//solution(123)
+
+// 프로그래머스 문자열 다루기 기본
+func solution(_ s:String) -> Bool {
+    if Int(s) == nil {
+        return false
+    } else if Array(s).count == 4 || Array(s).count == 6 {
+        return true
     }
-    
-    return answer
+    return false
 }
 
-solution(123)
+solution("123456a")
