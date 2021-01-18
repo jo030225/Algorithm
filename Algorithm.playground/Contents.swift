@@ -262,8 +262,27 @@ import UIKit
 // 프로그래머스 시저 암호
 
 func solution(_ s:String, _ n:Int) -> String {
-    return ''
+    var result = [Int]()
+    var resultArr = [Any]()
+    for i in s.utf16 {
+        if i == 32 {
+            result.append(Int(i))
+        } else {
+            result.append(Int(i) + n)
+        }
+        
+    }
+    
+    for i in result {
+        resultArr.append(UnicodeScalar(i)!)
+    }
+    
+    print((resultArr as? String) ?? 1)
+    
+    return ""
 }
+
+solution("a bc", 3)
 
 let a = "A"
 let b = (UnicodeScalar(a)!.value + 1)
