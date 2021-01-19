@@ -124,6 +124,7 @@ import UIKit
 
 
 // 프로그래머스 서울에서 김서방 찾기
+
 //func solution(_ seoul:[String]) -> String {
 //    var a: Int = 0
 //    for i in seoul {
@@ -259,31 +260,70 @@ import UIKit
 //
 //solution("123456a")
 
+
+
+
+
+
+
+UnicodeScalar("A")
+UnicodeScalar("Z")
+UnicodeScalar("a")
+UnicodeScalar("z")
+
 // 프로그래머스 시저 암호
 
+//func solution(_ s:String, _ n:Int) -> String {
+//    var a = [Int]()
+//    var b = [String]()
+//
+//    for i in s.utf16 {
+//        if i == 32 {
+//            a.append(Int(i))
+//        } else {
+//            if Int(i) + n > 122{
+//                a.append((Int(i) + n) - 26)
+//            } else if Int(i) + n > 97 {
+//                a.append(Int(i) + n)
+//            } else {
+//                a.append((Int(i) + n) - 26)
+//            }
+//        }
+//    }
+//    for j in a {
+//        if let char = UnicodeScalar(j) {
+//            b.append(String(char))
+//        }
+//    }
+//
+//    return b.joined()
+//}
+
 func solution(_ s:String, _ n:Int) -> String {
-    var result = [Int]()
-    var resultArr = [Any]()
+    var a = [Int]()
+    var b = [String]()
+    
     for i in s.utf16 {
         if i == 32 {
-            result.append(Int(i))
+            a.append(Int(i))
         } else {
-            result.append(Int(i) + n)
+            if Int(i) + n > 122{
+                a.append((Int(i) + n) - 26)
+            } else if Int(i) + n > 97 {
+                a.append(Int(i) + n)
+            } else {
+                a.append((Int(i) + n) - 26)
+            }
         }
-        
+    }
+    for j in a {
+        if let char = UnicodeScalar(j) {
+            b.append(String(char))
+        }
     }
     
-    for i in result {
-        resultArr.append(UnicodeScalar(i)!)
-    }
-    
-    print((resultArr as? String) ?? 1)
-    
-    return ""
+    return b.joined()
 }
 
-solution("a bc", 3)
+solution("z", 4)
 
-let a = "A"
-let b = (UnicodeScalar(a)!.value + 1)
-print(UnicodeScalar(b))
