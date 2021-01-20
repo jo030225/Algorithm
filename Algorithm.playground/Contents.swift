@@ -318,7 +318,7 @@ import UIKit
 //solution("z", 4)
 //
 
-// 프로그래머스 문자여 내 p와 y의 개수
+// 프로그래머스 문자열 내 p와 y의 개수
 
 func solution(_ s:String) -> Bool {
     var pCount: Int = 0
@@ -331,7 +331,7 @@ func solution(_ s:String) -> Bool {
             yCount += 1
         }
     }
-    if pCount == yCount && pCount > 0 {
+    if pCount == yCount {
         return true
     } else {
         return false
