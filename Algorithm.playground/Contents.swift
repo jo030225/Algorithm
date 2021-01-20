@@ -261,16 +261,6 @@ import UIKit
 //solution("123456a")
 
 
-
-
-
-
-
-UnicodeScalar("A")
-UnicodeScalar("Z")
-UnicodeScalar("a")
-UnicodeScalar("z")
-
 // 프로그래머스 시저 암호
 
 //func solution(_ s:String, _ n:Int) -> String {
@@ -299,31 +289,53 @@ UnicodeScalar("z")
 //    return b.joined()
 //}
 
-func solution(_ s:String, _ n:Int) -> String {
-    var a = [Int]()
-    var b = [String]()
+//func solution(_ s:String, _ n:Int) -> String {
+//    var a = [Int]()
+//    var b = [String]()
+//
+//    for i in s.utf16 {
+//        if i == 32 {
+//            a.append(Int(i))
+//        } else {
+//            if Int(i) + n > 122{
+//                a.append((Int(i) + n) - 26)
+//            } else if Int(i) + n > 97 {
+//                a.append(Int(i) + n)
+//            } else {
+//                a.append((Int(i) + n) - 26)
+//            }
+//        }
+//    }
+//    for j in a {
+//        if let char = UnicodeScalar(j) {
+//            b.append(String(char))
+//        }
+//    }
+//
+//    return b.joined()
+//}
+//
+//solution("z", 4)
+//
+
+// 프로그래머스 문자여 내 p와 y의 개수
+
+func solution(_ s:String) -> Bool {
+    var pCount: Int = 0
+    var yCount: Int = 0
     
-    for i in s.utf16 {
-        if i == 32 {
-            a.append(Int(i))
-        } else {
-            if Int(i) + n > 122{
-                a.append((Int(i) + n) - 26)
-            } else if Int(i) + n > 97 {
-                a.append(Int(i) + n)
-            } else {
-                a.append((Int(i) + n) - 26)
-            }
+    for i in Array(s) {
+        if i == "P" || i == "p" {
+            pCount += 1
+        } else if i == "Y" || i == "y" {
+            yCount += 1
         }
     }
-    for j in a {
-        if let char = UnicodeScalar(j) {
-            b.append(String(char))
-        }
+    if pCount == yCount && pCount > 0 {
+        return true
+    } else {
+        return false
     }
-    
-    return b.joined()
 }
 
-solution("z", 4)
-
+solution("yP")
