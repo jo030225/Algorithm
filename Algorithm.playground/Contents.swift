@@ -320,22 +320,30 @@ import UIKit
 
 // 프로그래머스 문자열 내 p와 y의 개수
 
-func solution(_ s:String) -> Bool {
-    var pCount: Int = 0
-    var yCount: Int = 0
-    
-    for i in Array(s) {
-        if i == "P" || i == "p" {
-            pCount += 1
-        } else if i == "Y" || i == "y" {
-            yCount += 1
-        }
-    }
-    if pCount == yCount {
-        return true
-    } else {
-        return false
-    }
+//func solution(_ s:String) -> Bool {
+//    var pCount: Int = 0
+//    var yCount: Int = 0
+//
+//    for i in Array(s) {
+//        if i == "P" || i == "p" {
+//            pCount += 1
+//        } else if i == "Y" || i == "y" {
+//            yCount += 1
+//        }
+//    }
+//    if pCount == yCount {
+//        return true
+//    } else {
+//        return false
+//    }
+//}
+//
+//solution("yP")
+
+// 프로그래머스 문자열 내림차순으로 배치하기
+
+func solution(_ s:String) -> String {
+    return String(Array(s).sorted(by: >))
 }
 
-solution("yP")
+solution("asdfffsfsa")
