@@ -365,5 +365,61 @@ import UIKit
 // 프로그래머스 [카카오 인턴] 키패드 누르기
 
 func solution(_ numbers:[Int], _ hand:String) -> String {
-    return ""
+    
+    var phones = [[1,2,3],[4,5,6],[7,8,9],[11,0,12]]
+    var answer = ""
+    
+    var leftHand = 11
+    var rightHand = 12
+    
+    for num in numbers {
+        if num == 1 || num == 4 || num == 7 {
+            leftHand = num
+            answer += "L"
+        } else if num == 3 || num == 6 || num == 9 {
+            rightHand = num
+            answer += "R"
+        } else {
+            var posL = [Int]()
+            var posR = [Int]()
+            var posNum = [Int]()
+            
+            for i in 0..<phones.count {
+                for j in 0..<phones[i].count {
+                    if phones[i][j] == leftHand {
+                        posL = [i,j]
+                    }
+                    if phones[i][j] == rightHand {
+                        posR = [i,j]
+                    }
+                    if phones[i][j] == num {
+                        posNum = [i,j]
+                    }
+                }
+            }
+            
+            var count1 = abs(posL[0] - posNum[0]) + abs(posL[1] - posNum[1])
+            var count2 = abs(posR[0] - posNum[0]) + abs(posR[1] - posNum[1])
+            
+            if count1 < count2 {
+                leftHand = num
+                answer += "L"
+            } else if count2 < count1 {
+                rightHand = num
+                answer += "R"
+            } else {
+                if hand == "left" {
+                    leftHand = num
+                    answer += "L"
+                } else {
+                    rightHand = num
+                    answer += "R"
+                }
+            }
+        }
+    }
+    
+    return answer
 }
+
+solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5], "right")
