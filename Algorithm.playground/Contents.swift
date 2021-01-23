@@ -349,15 +349,21 @@ import UIKit
 //solution("asdfffsfsa")
 
 // 프로그래머스 내적
+//
+//func solution(_ a:[Int], _ b:[Int]) -> Int {
+//    var result = 0
+//
+//    for i in 0 ..< a.count {
+//        result += a[i] * b[i]
+//    }
+//
+//    return result
+//}
+//
+//solution([1,2,3,4], [-3,-1,0,2])
 
-func solution(_ a:[Int], _ b:[Int]) -> Int {
-    var result = 0
-    
-    for i in 0 ..< a.count {
-        result += a[i] * b[i]
-    }
-    
-    return result
+// 프로그래머스 [카카오 인턴] 키패드 누르기
+
+func solution(_ numbers:[Int], _ hand:String) -> String {
+    return ""
 }
-
-solution([1,2,3,4], [-3,-1,0,2])
