@@ -426,14 +426,20 @@ import UIKit
 
 // 프로그래머스 x만큼 간격이 있는 n개의 숫자
 
-func solution(_ x:Int, _ n:Int) -> [Int64] {
-    var resultArr = [Int64]()
-    
-    for i in 1 ... n {
-        resultArr.append(Int64(i * x))
-    }
-    
-    return resultArr
-}
+//func solution(_ x:Int, _ n:Int) -> [Int64] {
+//    var resultArr = [Int64]()
+//
+//    for i in 1 ... n {
+//        resultArr.append(Int64(i * x))
+//    }
+//
+//    return resultArr
+//}
+//
+//solution(2, 5)
 
-solution(2, 5)
+// 프로그래머스 자연수 뒤집어 배열로 만들기
+
+func solution(_ n:Int64) -> [Int] {
+    return []
+}
