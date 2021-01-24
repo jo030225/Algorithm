@@ -441,5 +441,7 @@ import UIKit
 // 프로그래머스 자연수 뒤집어 배열로 만들기
 
 func solution(_ n:Int64) -> [Int] {
-    return []
+    return String(n).map({Int(String($0))!}).reversed()
 }
+
+solution(1234)
