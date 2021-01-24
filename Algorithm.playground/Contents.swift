@@ -440,8 +440,21 @@ import UIKit
 
 // 프로그래머스 자연수 뒤집어 배열로 만들기
 
-func solution(_ n:Int64) -> [Int] {
-    return String(n).map({Int(String($0))!}).reversed()
+//func solution(_ n:Int64) -> [Int] {
+//    return String(n).map{Int(String($0))!}.sorted(by: >)
+//}
+//
+//solution(1534)
+
+// 프로그래머스 정수 내림차순으로 배치하기
+
+func solution(_ n:Int64) -> Int64 {
+    var b = String()
+    let a = String(n).map{Int(String($0))!}.sorted(by: >)
+    for i in a {
+        b.append(String(i))
+    }
+    return Int64(b)!
 }
 
-solution(1234)
+solution(118372)
