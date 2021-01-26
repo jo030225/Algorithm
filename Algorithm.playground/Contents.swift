@@ -462,5 +462,23 @@ import UIKit
 // 프로그래머스 제일 작은 수 제거하기
 
 func solution(_ arr:[Int]) -> [Int] {
-    return []
+    var result = arr
+    var min = arr[0]
+    var minCount = 0
+    
+    if arr.count == 1 {
+        return [-1]
+    }
+    
+    for i in 1 ..< arr.count {
+        if min > arr[i] {
+            min = arr[i]
+            minCount = i
+        }
+    }
+    result.remove(at: minCount)
+    
+    return result
 }
+
+solution([1,2,3,4,5])
