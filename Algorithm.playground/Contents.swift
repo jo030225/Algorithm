@@ -448,13 +448,19 @@ import UIKit
 
 // 프로그래머스 정수 내림차순으로 배치하기
 
-func solution(_ n:Int64) -> Int64 {
-    var b = String()
-    let a = String(n).map{Int(String($0))!}.sorted(by: >)
-    for i in a {
-        b.append(String(i))
-    }
-    return Int64(b)!
-}
+//func solution(_ n:Int64) -> Int64 {
+//    var b = String()
+//    let a = String(n).map{Int(String($0))!}.sorted(by: >)
+//    for i in a {
+//        b.append(String(i))
+//    }
+//    return Int64(b)!
+//}
+//
+//solution(118372)
 
-solution(118372)
+// 프로그래머스 제일 작은 수 제거하기
+
+func solution(_ arr:[Int]) -> [Int] {
+    return []
+}
