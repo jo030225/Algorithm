@@ -486,5 +486,23 @@ import UIKit
 // 프로그래머스 이상한 문자 만들기
 
 func solution(_ s:String) -> String {
-    return ""
+    var answer = String()
+    let arr = s.components(separatedBy: " ")
+    for i in 0 ..< arr.count {
+        if i != 0 {
+            answer += " "
+        }
+        for j in 0 ..< arr[i].count {
+            let index = arr[i].index(arr[i].startIndex, offsetBy: j)
+            if j % 2 == 0 {
+                answer += String(arr[i][index]).uppercased()
+            } else {
+                answer += String(arr[i][index]).lowercased()
+            }
+        }
+    }
+    return answer
 }
+
+
+solution("try hello world")
