@@ -485,25 +485,37 @@ import UIKit
 
 // 프로그래머스 이상한 문자 만들기
 
-func solution(_ s:String) -> String {
-    var check = true
-    var result = ""
-    for i in s {
-        if(i == " ") {
-            result += String(i)
-            check = true
-        } else {
-            if(check) {
-                result += String(i).uppercased()
-                check = false
-            } else {
-                result += String(i).lowercased()
-                check = true
-            }
-        }
+//func solution(_ s:String) -> String {
+//    var check = true
+//    var result = ""
+//    for i in s {
+//        if(i == " ") {
+//            result += String(i)
+//            check = true
+//        } else {
+//            if(check) {
+//                result += String(i).uppercased()
+//                check = false
+//            } else {
+//                result += String(i).lowercased()
+//                check = true
+//            }
+//        }
+//    }
+//    return result
+//}
+//
+//
+//solution("try hello world")
+
+// 프로그래머스 짝수와 홀수
+
+func solution(_ num:Int) -> String {
+    if num % 2 == 0 {
+        return "Even"
     }
-    return result
+    
+    return "Odd"
 }
 
-
-solution("try hello world")
+solution(7)
