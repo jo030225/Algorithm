@@ -510,12 +510,18 @@ import UIKit
 
 // 프로그래머스 짝수와 홀수
 
-func solution(_ num:Int) -> String {
-    if num % 2 == 0 {
-        return "Even"
-    }
-    
-    return "Odd"
-}
+//func solution(_ num:Int) -> String {
+//    if num % 2 == 0 {
+//        return "Even"
+//    }
+//
+//    return "Odd"
+//}
+//
+//solution(7)
 
-solution(7)
+// 프로그래머스 약수의 합
+
+func solution(_ n:Int) -> Int {
+    return 0
+}
