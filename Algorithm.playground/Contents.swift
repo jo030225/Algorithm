@@ -523,5 +523,17 @@ import UIKit
 // 프로그래머스 약수의 합
 
 func solution(_ n:Int) -> Int {
-    return 0
+    var result = 0
+    if n == 0 {
+        return 0
+    } else {
+        for i in 1...n {
+            if n % i == 0 {
+                result += i
+            }
+        }
+    }
+    return result
 }
+
+solution(0)
