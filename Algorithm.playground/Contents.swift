@@ -607,6 +607,13 @@ import UIKit
 // 프로그래머스 평균 구하기
 
 func solution(_ arr:[Int]) -> Double {
+    var average = Int()
     
-    return 0
+    for i in arr {
+        average += i
+    }
+    
+    return Double(average) / Double(arr.count)
 }
+
+solution([5,5])
