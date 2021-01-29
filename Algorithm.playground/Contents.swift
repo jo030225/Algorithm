@@ -581,25 +581,32 @@ import UIKit
 
 // 프로그래머스 콜라츠 추측
 
-func solution(_ num:Int) -> Int {
-    var temp = num
-    var count = 0
-    
-    for _ in 1...500 {
-        if temp % 2 == 0 {
-            temp = temp / 2
-            count += 1
-        } else {
-            if temp != 1 {
-                temp = temp * 3 + 1
-                count += 1
-            } else {
-                return count
-            }
-        }
-    }
-    
-    return -1
-}
+//func solution(_ num:Int) -> Int {
+//    var temp = num
+//    var count = 0
+//
+//    for _ in 1...500 {
+//        if temp % 2 == 0 {
+//            temp = temp / 2
+//            count += 1
+//        } else {
+//            if temp != 1 {
+//                temp = temp * 3 + 1
+//                count += 1
+//            } else {
+//                return count
+//            }
+//        }
+//    }
+//
+//    return -1
+//}
+//
+//solution(626331)
 
-solution(626331)
+// 프로그래머스 평균 구하기
+
+func solution(_ arr:[Int]) -> Double {
+    
+    return 0
+}
