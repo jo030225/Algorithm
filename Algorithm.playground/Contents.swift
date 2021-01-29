@@ -522,18 +522,59 @@ import UIKit
 
 // 프로그래머스 약수의 합
 
-func solution(_ n:Int) -> Int {
-    var result = 0
-    if n == 0 {
-        return 0
-    } else {
-        for i in 1...n {
-            if n % i == 0 {
-                result += i
+//func solution(_ n:Int) -> Int {
+//    var result = 0
+//    if n == 0 {
+//        return 0
+//    } else {
+//        for i in 1...n {
+//            if n % i == 0 {
+//                result += i
+//            }
+//        }
+//    }
+//    return result
+//}
+//
+//solution(0)
+
+// 프로그래머스 최대공약수와 최소공배수
+
+func solution(_ n:Int, _ m:Int) -> [Int] {
+    var firstArr = [Int]()
+    var secondArr = [Int]()
+    var GCD = 0
+    var LCM = 0
+    
+    for i in 1...n {
+        if n % i == 0 {
+            firstArr.append(i)
+        }
+    }
+    for i in 1...m {
+        if m % i == 0 {
+            secondArr.append(i)
+        }
+    }
+    
+    if firstArr.count > secondArr.count {
+        for i in (0 ..< secondArr.count).reversed() {
+            if (firstArr.contains(secondArr[i])) {
+                GCD = secondArr[i]
+                break
+            }
+        }
+    } else if firstArr.count <= secondArr.count {
+        for i in (0 ..< firstArr.count).reversed() {
+            if (secondArr.contains(firstArr[i])) {
+                GCD = firstArr[i]
+                break
             }
         }
     }
-    return result
+    
+    LCM = (n/GCD) * (m/GCD) * GCD
+    
+    return [GCD, LCM]
 }
-
-solution(0)
+solution(3, 12)
