@@ -540,41 +540,56 @@ import UIKit
 
 // 프로그래머스 최대공약수와 최소공배수
 
-func solution(_ n:Int, _ m:Int) -> [Int] {
-    var firstArr = [Int]()
-    var secondArr = [Int]()
-    var GCD = 0
-    var LCM = 0
+//func solution(_ n:Int, _ m:Int) -> [Int] {
+//    var firstArr = [Int]()
+//    var secondArr = [Int]()
+//    var GCD = 0
+//    var LCM = 0
+//
+//    for i in 1...n {
+//        if n % i == 0 {
+//            firstArr.append(i)
+//        }
+//    }
+//    for i in 1...m {
+//        if m % i == 0 {
+//            secondArr.append(i)
+//        }
+//    }
+//
+//    if firstArr.count > secondArr.count {
+//        for i in (0 ..< secondArr.count).reversed() {
+//            if (firstArr.contains(secondArr[i])) {
+//                GCD = secondArr[i]
+//                break
+//            }
+//        }
+//    } else if firstArr.count <= secondArr.count {
+//        for i in (0 ..< firstArr.count).reversed() {
+//            if (secondArr.contains(firstArr[i])) {
+//                GCD = firstArr[i]
+//                break
+//            }
+//        }
+//    }
+//
+//    LCM = (n/GCD) * (m/GCD) * GCD
+//
+//    return [GCD, LCM]
+//}
+//solution(11, 12)
+
+// 프로그래머스 콜라츠 추측
+
+func solution(_ num:Int) -> Int {
     
-    for i in 1...n {
-        if n % i == 0 {
-            firstArr.append(i)
+    if num % 2 == 0 {
+        for i in 1...500 {
+            
         }
+    } else {
+        
     }
-    for i in 1...m {
-        if m % i == 0 {
-            secondArr.append(i)
-        }
-    }
     
-    if firstArr.count > secondArr.count {
-        for i in (0 ..< secondArr.count).reversed() {
-            if (firstArr.contains(secondArr[i])) {
-                GCD = secondArr[i]
-                break
-            }
-        }
-    } else if firstArr.count <= secondArr.count {
-        for i in (0 ..< firstArr.count).reversed() {
-            if (secondArr.contains(firstArr[i])) {
-                GCD = firstArr[i]
-                break
-            }
-        }
-    }
-    
-    LCM = (n/GCD) * (m/GCD) * GCD
-    
-    return [GCD, LCM]
+    return 0
 }
-solution(3, 12)
