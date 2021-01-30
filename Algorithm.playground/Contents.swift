@@ -620,19 +620,25 @@ import UIKit
 
 // 프로그래머스 하샤드 수
 
-func solution(_ x:Int) -> Bool {
-    
-    var temp = 0
-    var num = x
-    
-    while num > 0 {
-        temp += num % 10
-        num = num / 10
-    }
-    if x % temp == 0 {
-        return true
-    }
-    
-    return false
+//func solution(_ x:Int) -> Bool {
+//
+//    var temp = 0
+//    var num = x
+//
+//    while num > 0 {
+//        temp += num % 10
+//        num = num / 10
+//    }
+//    if x % temp == 0 {
+//        return true
+//    }
+//
+//    return false
+//}
+//solution(11)
+
+// 프로그래머스 핸드폰 번호 가리기
+
+func solution(_ phone_number:String) -> String {
+    return ""
 }
-solution(11)
