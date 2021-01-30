@@ -622,6 +622,17 @@ import UIKit
 
 func solution(_ x:Int) -> Bool {
     
+    var temp = 0
+    var num = x
     
-    return true
+    while num > 0 {
+        temp += num % 10
+        num = num / 10
+    }
+    if x % temp == 0 {
+        return true
+    }
+    
+    return false
 }
+solution(11)
