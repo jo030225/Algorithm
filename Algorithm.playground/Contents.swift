@@ -640,5 +640,19 @@ import UIKit
 // 프로그래머스 핸드폰 번호 가리기
 
 func solution(_ phone_number:String) -> String {
-    return ""
+    let a = Array(phone_number)
+    var count = 0
+    var result = [String](repeating: "a", count: a.count )
+    
+    for i in (0..<a.count).reversed() {
+        count += 1
+        if count < 5 {
+            result[i] = String(a[i])
+        } else {
+            result[i] = "*"
+        }
+    }
+    return result.joined()
 }
+
+solution("01023354030")
