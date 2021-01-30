@@ -606,14 +606,22 @@ import UIKit
 
 // 프로그래머스 평균 구하기
 
-func solution(_ arr:[Int]) -> Double {
-    var average = Int()
-    
-    for i in arr {
-        average += i
-    }
-    
-    return Double(average) / Double(arr.count)
-}
+//func solution(_ arr:[Int]) -> Double {
+//    var average = Int()
+//
+//    for i in arr {
+//        average += i
+//    }
+//
+//    return Double(average) / Double(arr.count)
+//}
+//
+//solution([5,5])
 
-solution([5,5])
+// 프로그래머스 하샤드 수
+
+func solution(_ x:Int) -> Bool {
+    
+    
+    return true
+}
