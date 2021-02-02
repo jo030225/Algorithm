@@ -659,16 +659,22 @@ import UIKit
 
 // 프로그래머스 행렬의 덧셈
 
-func solution(_ arr1:[[Int]], _ arr2:[[Int]]) -> [[Int]] {
-    var resultArr = [[Int]](repeating: [Int](repeating: 0, count: arr1[0].count), count: arr1.count)
-    
-    for i in 0..<arr1.count {
-        for j in 0 ..< arr1[i].count {
-            resultArr[i][j] = arr1[i][j] + arr2[i][j]
-        }
-    }
-    
-    return resultArr
-}
+//func solution(_ arr1:[[Int]], _ arr2:[[Int]]) -> [[Int]] {
+//    var resultArr = [[Int]](repeating: [Int](repeating: 0, count: arr1[0].count), count: arr1.count)
+//
+//    for i in 0..<arr1.count {
+//        for j in 0 ..< arr1[i].count {
+//            resultArr[i][j] = arr1[i][j] + arr2[i][j]
+//        }
+//    }
+//
+//    return resultArr
+//}
+//
+//solution([[1],[2]], [[3],[4]])
 
-solution([[1],[2]], [[3],[4]])
+// 프로그래머스 위장
+
+func solution(_ clothes:[[String]]) -> Int {
+    return 0
+}
