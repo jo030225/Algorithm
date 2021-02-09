@@ -675,18 +675,26 @@ import UIKit
 
 // 프로그래머스 위장
 
-func solution(_ clothes:[[String]]) -> Int {
-    var result = [String:Int]()
-    
-    for i in 0 ..< clothes.count {
-        if !(result.keys.contains(clothes[i][1])) {
-            result.updateValue(2, forKey: clothes[i][1])
-        } else {
-            result.updateValue(result[clothes[i][1]]! + 1, forKey: clothes[i][1])
-        }
-    }
-    
-    return result.reduce(1){$0 * $1.value} - 1
-}
+//func solution(_ clothes:[[String]]) -> Int {
+//    var result = [String:Int]()
+//
+//    for i in 0 ..< clothes.count {
+//        if !(result.keys.contains(clothes[i][1])) {
+//            result.updateValue(2, forKey: clothes[i][1])
+//        } else {
+//            result.updateValue(result[clothes[i][1]]! + 1, forKey: clothes[i][1])
+//        }
+//    }
+//
+//    return result.reduce(1){$0 * $1.value} - 1
+//}
+//
+//solution([["yellow_hat", "a"], ["blue_sunglasses", "b"], ["green_turban", "b"],["green_turban", "c"]])
 
-solution([["yellow_hat", "a"], ["blue_sunglasses", "b"], ["green_turban", "b"],["green_turban", "c"]])
+// 프로그래머스 다리를 지나는 트럭
+
+func solution(_ bridge_length:Int, _ weight:Int, _ truck_weights:[Int]) -> Int {
+    
+    
+    return 0
+}
