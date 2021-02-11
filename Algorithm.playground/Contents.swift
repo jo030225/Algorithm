@@ -724,5 +724,41 @@ import UIKit
 // 프로그래머스 프린터
 
 func solution(_ priorities:[Int], _ location:Int) -> Int {
-    return 0
+    
+    var queue: [(Int,Int)] = []
+    var priorityQueue: [Int] = []
+
+    for i in 0..<priorities.count {
+        let priority = priorities[i]
+        queue.append((priority, i))
+        priorityQueue.append(priority)
+    }
+
+    print(queue)
+    
+    priorityQueue.sort(by: >)
+    var outputCount = 0
+    while !queue.isEmpty {
+        let topPriority = priorityQueue.first
+        guard let doc = queue.first else {
+            break
+        }
+        queue.removeFirst()
+
+        if topPriority == doc.0 {
+            outputCount += 1
+            priorityQueue.removeFirst()
+            if doc.1 == location {
+                break
+            }
+        } else {
+            queue.append(doc)
+        }
+    }
+
+    print(queue)
+    
+    return outputCount
 }
+
+solution([2,1,2,1,2,1,1,2], 4)
