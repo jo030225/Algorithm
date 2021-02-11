@@ -725,40 +725,44 @@ import UIKit
 
 func solution(_ priorities:[Int], _ location:Int) -> Int {
     
-    var queue: [(Int,Int)] = []
-    var priorityQueue: [Int] = []
-
-    for i in 0..<priorities.count {
-        let priority = priorities[i]
-        queue.append((priority, i))
-        priorityQueue.append(priority)
-    }
-
-    print(queue)
+    var priorityQueue: [(Int,Int)] = []
+    var output: [(Int,Int)] = []
+    var count = 1
     
-    priorityQueue.sort(by: >)
-    var outputCount = 0
-    while !queue.isEmpty {
-        let topPriority = priorityQueue.first
-        guard let doc = queue.first else {
+    for i in 0 ..< priorities.count {
+        priorityQueue.append((priorities[i], i))
+    }
+    
+    while true {
+        count += 1
+        if priorityQueue.count == 1 {
+            output.append(priorityQueue[0])
             break
         }
-        queue.removeFirst()
-
-        if topPriority == doc.0 {
-            outputCount += 1
-            priorityQueue.removeFirst()
-            if doc.1 == location {
-                break
+        for i in 0 ..< priorityQueue.count {
+            print(i)
+            for j in 1 ..< priorityQueue.count {
+                if priorityQueue[0].0 < priorityQueue[0 + j].0 {
+                    priorityQueue.append(priorityQueue[0])
+                    priorityQueue.remove(at: 0)
+                    break
+                }
+                if j == priorityQueue.count - 1 {
+                    output.append(priorityQueue[0])
+                    priorityQueue.remove(at: 0)
+                }
             }
-        } else {
-            queue.append(doc)
+            
         }
     }
 
-    print(queue)
-    
-    return outputCount
+    for i in 0 ..< output.count {
+        if output[i].1 == location {
+            return i + 1
+        }
+    }
+   
+    return 0
 }
 
-solution([2,1,2,1,2,1,1,2], 4)
+solution([1,2,1,2,1,2,1,2], 2)
