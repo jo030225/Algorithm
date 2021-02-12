@@ -723,46 +723,104 @@ import UIKit
 
 // 프로그래머스 프린터
 
-func solution(_ priorities:[Int], _ location:Int) -> Int {
-    
-    var priorityQueue: [(Int,Int)] = []
-    var output: [(Int,Int)] = []
-    var count = 1
-    
-    for i in 0 ..< priorities.count {
-        priorityQueue.append((priorities[i], i))
-    }
-    
-    while true {
-        count += 1
-        if priorityQueue.count == 1 {
-            output.append(priorityQueue[0])
-            break
-        }
-        for i in 0 ..< priorityQueue.count {
-            print(i)
-            for j in 1 ..< priorityQueue.count {
-                if priorityQueue[0].0 < priorityQueue[0 + j].0 {
-                    priorityQueue.append(priorityQueue[0])
-                    priorityQueue.remove(at: 0)
-                    break
-                }
-                if j == priorityQueue.count - 1 {
-                    output.append(priorityQueue[0])
-                    priorityQueue.remove(at: 0)
-                }
-            }
-            
-        }
-    }
+//func solution(_ priorities:[Int], _ location:Int) -> Int {
+//
+//    var priorityQueue: [(Int,Int)] = []
+//    var output: [(Int,Int)] = []
+//    var count = 1
+//
+//    for i in 0 ..< priorities.count {
+//        priorityQueue.append((priorities[i], i))
+//    }
+//
+//    while true {
+//        count += 1
+//        if priorityQueue.count == 1 {
+//            output.append(priorityQueue[0])
+//            break
+//        }
+//        for i in 0 ..< priorityQueue.count {
+//            print(i)
+//            for j in 1 ..< priorityQueue.count {
+//                if priorityQueue[0].0 < priorityQueue[0 + j].0 {
+//                    priorityQueue.append(priorityQueue[0])
+//                    priorityQueue.remove(at: 0)
+//                    break
+//                }
+//                if j == priorityQueue.count - 1 {
+//                    output.append(priorityQueue[0])
+//                    priorityQueue.remove(at: 0)
+//                }
+//            }
+//
+//        }
+//    }
+//
+//    for i in 0 ..< output.count {
+//        if output[i].1 == location {
+//            return i + 1
+//        }
+//    }
+//
+//    return 0
+//}
+//
+//solution([1,2,1,2,1,2,1,2], 2)
 
-    for i in 0 ..< output.count {
-        if output[i].1 == location {
-            return i + 1
+// 프로그래머스 기능개발
+
+func solution(_ progresses:[Int], _ speeds:[Int]) -> [Int] {
+    var resultArr: [(Int,Int)] = []
+    var resultDay = [Int]()
+    var result = [Int]()
+    
+    for i in 0 ..< progresses.count {
+        resultArr.append((progresses[i],speeds[i]))
+    }
+    
+    for i in 0 ..< resultArr.count {
+        var count = resultArr[i].0
+        for j in 0... {
+            if count < 100 {
+                count += resultArr[i].1
+            } else {
+                resultDay.append(j)
+                break
+            }
         }
     }
-   
-    return 0
+    
+    print(resultDay)
+    
+    for i in 0 ..< resultDay.count - 1 {
+        if resultDay[i] > resultDay[i + 1] {
+            resultDay[i + 1] = resultDay[i]
+        }
+    }
+    
+    print(resultDay)
+    
+    var count = 1
+    for i in 0 ..< resultDay.count - 1 {
+        if resultDay[i] != resultDay[i + 1] {
+            result.append(count)
+            count = 1
+        } else {
+            count += 1
+            if i == resultDay.count - 2 {
+                result.append(count)
+                break
+            }
+        }
+        if i == resultDay.count - 2 {
+            count = 1
+            result.append(count)
+        }
+    }
+    
+    print(result)
+    
+    return result
 }
 
-solution([1,2,1,2,1,2,1,2], 2)
+solution([93, 30, 55], [1, 30, 5])
