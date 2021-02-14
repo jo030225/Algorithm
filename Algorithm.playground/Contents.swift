@@ -828,61 +828,11 @@ import UIKit
 // 프로그래머스 가장 큰 수
 
 func solution(_ numbers:[Int]) -> String {
-    var number = numbers
-    var resultArr = [Int]()
-    var max = 0
-    var realmax = 0
-    var count = 0
-    var a = 0
-
-    while !(number.isEmpty) {
-
-        for i in 0 ..< number.count {
-            if number[a] == 1000 {
-                continue
-            } else if number[a] >= 100 {
-                if realmax < number[a] / 100 {
-                    max = number[a]
-                    realmax = number[a] / 100
-                }
-            } else if number[a] >= 10 {
-                if realmax < number[a] / 10 {
-                    max = number[a]
-                    realmax = number[a] / 10
-                }
-            } else {
-                if realmax <= number[a] {
-                    max = number[a]
-                    realmax = number[a]
-                }
-            }
-            print("number: \(number)")
-            print("a: \(a)")
-            print("max: \(max)")
-            print("realmax: \(realmax)")
-            a += 1
-        }
-        resultArr.append(max)
-        print("resultArr: \(resultArr)\n")
-        for i in 0 ..< number.count {
-            if number[i] == max {
-                number.remove(at: i)
-                break
-            }
-        }
-        max = 0
-        realmax = 0
-        a = 0
-        print("a: \(a)")
-        print("max: \(max)")
-        print("realmax: \(realmax)")
-        count += 1
-       
+    let sorted: [Int] = numbers.sorted {Int("\($0)\($1)")! > Int("\($1)\($0)")!}
+    if sorted[0] == 0 {
+        return "0"
     }
-
-    print(resultArr)
-
-    return ""
+    return sorted.reduce(""){ $0 + "\($1)"}
 }
 
-solution([3, 40, 64, 5, 9])
+solution([6,10,2])
