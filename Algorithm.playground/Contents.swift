@@ -827,12 +827,40 @@ import UIKit
 
 // 프로그래머스 가장 큰 수
 
-func solution(_ numbers:[Int]) -> String {
-    let sorted: [Int] = numbers.sorted {Int("\($0)\($1)")! > Int("\($1)\($0)")!}
-    if sorted[0] == 0 {
-        return "0"
+//func solution(_ numbers:[Int]) -> String {
+//    let sorted: [Int] = numbers.sorted {Int("\($0)\($1)")! > Int("\($1)\($0)")!}
+//    print(sorted)
+//    print(numbers.sorted(by: >))
+//    if sorted[0] == 0 {
+//        return "0"
+//    }
+//    return sorted.reduce(""){ $0 + "\($1)"}
+//}
+//
+//solution([3, 30, 34, 5, 9])
+
+// K번째 수 재풀이
+
+func solution(_ array:[Int], _ commands:[[Int]]) -> [Int] {
+    var resultArr = [Int]()
+    var tempArr = [Int]()
+    var startIndex = 0
+    var endIndex = 0
+    var selectIndex = 0
+    
+    for i in commands {
+        startIndex = i[0]
+        endIndex = i[1]
+        selectIndex = i[2]
+        
+        for i in array[startIndex - 1 ..< endIndex] {
+            tempArr.append(i)
+        }
+        resultArr.append(tempArr.sorted()[selectIndex - 1])
+        tempArr.removeAll()
     }
-    return sorted.reduce(""){ $0 + "\($1)"}
+    
+    return resultArr
 }
 
-solution([6,10,2])
+solution([1, 5, 2, 6, 3, 7, 4], [[2, 5, 3], [4, 4, 1], [1, 7, 3]])
