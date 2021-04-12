@@ -841,26 +841,61 @@ import UIKit
 
 // K번째 수 재풀이
 
-func solution(_ array:[Int], _ commands:[[Int]]) -> [Int] {
-    var resultArr = [Int]()
-    var tempArr = [Int]()
-    var startIndex = 0
-    var endIndex = 0
-    var selectIndex = 0
+//func solution(_ array:[Int], _ commands:[[Int]]) -> [Int] {
+//    var resultArr = [Int]()
+//    var tempArr = [Int]()
+//    var startIndex = 0
+//    var endIndex = 0
+//    var selectIndex = 0
+//
+//    for i in commands {
+//        startIndex = i[0]
+//        endIndex = i[1]
+//        selectIndex = i[2]
+//
+//        for i in array[startIndex - 1 ..< endIndex] {
+//            tempArr.append(i)
+//        }
+//        resultArr.append(tempArr.sorted()[selectIndex - 1])
+//        tempArr.removeAll()
+//    }
+//
+//    return resultArr
+//}
+//
+//solution([1, 5, 2, 6, 3, 7, 4], [[2, 5, 3], [4, 4, 1], [1, 7, 3]])
+
+//func solution(_ s:String) -> String {
+//
+//    let a = Array(s)
+//
+//    if a.count == 1 {
+//        return "\(a[0])"
+//    } else {
+//        if a.count % 2 == 0 {
+//            return "\(a[a.count / 2 - 1])\(a[a.count / 2])"
+//        } else {
+//            return "\(a[a.count / 2])"
+//        }
+//    }
+//}
+//solution("qw")
+
+// 베스트앨범
+
+func solution(_ genres:[String], _ plays:[Int]) -> [Int] {
+    var a = [Int:[Any]]()
     
-    for i in commands {
-        startIndex = i[0]
-        endIndex = i[1]
-        selectIndex = i[2]
-        
-        for i in array[startIndex - 1 ..< endIndex] {
-            tempArr.append(i)
-        }
-        resultArr.append(tempArr.sorted()[selectIndex - 1])
-        tempArr.removeAll()
+    for i in 0 ..< genres.count {
+        a.updateValue([plays[i],genres[i]], forKey: i)
+    }
+    print(a)
+    
+    for i in 0 ..< genres.count {
+        print(a[i]![1])
     }
     
-    return resultArr
+    return []
 }
 
-solution([1, 5, 2, 6, 3, 7, 4], [[2, 5, 3], [4, 4, 1], [1, 7, 3]])
+solution(["classic", "pop", "classic", "classic", "pop"], [500, 600, 150, 800, 2500])
