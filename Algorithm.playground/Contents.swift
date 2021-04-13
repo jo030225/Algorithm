@@ -883,19 +883,66 @@ import UIKit
 
 // 베스트앨범
 
+//func solution(_ genres:[String], _ plays:[Int]) -> [Int] {
+//    var a = [[Any]]()
+//    var b = [String:[[Int]]]()
+//    var c = [String]()
+//
+//    for i in 0 ..< genres.count {
+//        a.append([i,genres[i],plays[i]])
+//    }
+//    print(a)
+//
+//    for i in 0 ..< genres.count {
+//        if b.keys.contains(a[i][1] as! String) {
+//            b[a[i][1] as! String]?.append([a[i][0] as! Int, a[i][2] as! Int])
+//        } else {
+//            b.updateValue([[a[i][0] as! Int, a[i][2] as! Int]], forKey: a[i][1] as! String)
+//            c.append(a[i][1] as! String)
+//        }
+//    }
+//
+//    print(b)
+//    print(c)
+//
+//    return []
+//}
+
 func solution(_ genres:[String], _ plays:[Int]) -> [Int] {
-    var a = [Int:[Any]]()
-    
-    for i in 0 ..< genres.count {
-        a.updateValue([plays[i],genres[i]], forKey: i)
+    var playsByGenre: [String:Int] = [:]
+    var idsByGenre: [String:[Int]] = [:]
+
+    for i in 0..<genres.count {
+        let genre = genres[i]
+        let play = plays[i]
+
+        if let pCount = playsByGenre[genre] {
+            playsByGenre[genre] = pCount + play
+        } else {
+            playsByGenre[genre] = play
+        }
+        if idsByGenre[genre] != nil {
+            idsByGenre[genre]!.append(i)
+        } else {
+            idsByGenre[genre] = [i]
+        }
     }
-    print(a)
-    
-    for i in 0 ..< genres.count {
-        print(a[i]![1])
+
+    let bestGenre: [String] = Array(playsByGenre.keys).sorted{
+        return playsByGenre[$0]! > playsByGenre[$1]!
     }
-    
-    return []
+
+    var answer: [Int] = []
+    for genre in bestGenre {
+        let IDs = idsByGenre[genre]!.sorted{
+            return plays[$0] > plays[$1]
+        }
+        answer.append(IDs[0])
+        if IDs.count > 1 {
+            answer.append(IDs[1])
+        }
+    }
+    return answer
 }
 
 solution(["classic", "pop", "classic", "classic", "pop"], [500, 600, 150, 800, 2500])
