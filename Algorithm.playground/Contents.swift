@@ -908,41 +908,81 @@ import UIKit
 //    return []
 //}
 
-func solution(_ genres:[String], _ plays:[Int]) -> [Int] {
-    var playsByGenre: [String:Int] = [:]
-    var idsByGenre: [String:[Int]] = [:]
+//func solution(_ genres:[String], _ plays:[Int]) -> [Int] {
+//    var playsByGenre: [String:Int] = [:]
+//    var idsByGenre: [String:[Int]] = [:]
+//
+//    for i in 0..<genres.count {
+//        let genre = genres[i]
+//        let play = plays[i]
+//
+//        if let pCount = playsByGenre[genre] {
+//            print(pCount)
+//            playsByGenre[genre] = pCount + play
+//        } else {
+//            playsByGenre[genre] = play
+//        }
+//        if idsByGenre[genre] != nil {
+//            idsByGenre[genre]!.append(i)
+//        } else {
+//            idsByGenre[genre] = [i]
+//        }
+//    }
+//
+//    let bestGenre: [String] = Array(playsByGenre.keys).sorted{
+//        return playsByGenre[$0]! > playsByGenre[$1]!
+//    }
+//
+//    var answer: [Int] = []
+//    for genre in bestGenre {
+//        let IDs = idsByGenre[genre]!.sorted{
+//            return plays[$0] > plays[$1]
+//        }
+//        answer.append(IDs[0])
+//        if IDs.count > 1 {
+//            answer.append(IDs[1])
+//        }
+//    }
+//    return answer
+//}
+//
+//solution(["classic", "pop", "classic", "classic", "pop"], [500, 600, 150, 800, 2500])
 
-    for i in 0..<genres.count {
-        let genre = genres[i]
-        let play = plays[i]
+// 체육복
 
-        if let pCount = playsByGenre[genre] {
-            playsByGenre[genre] = pCount + play
-        } else {
-            playsByGenre[genre] = play
-        }
-        if idsByGenre[genre] != nil {
-            idsByGenre[genre]!.append(i)
-        } else {
-            idsByGenre[genre] = [i]
+func solution(_ n:Int, _ lost:[Int], _ reserve:[Int]) -> Int {
+    
+    // 가지고 있는 체육복 개수 저장 (기본적으로 1벌)
+    var students = [Int](repeating: 1, count: n)
+    
+    // 잃어버린 사람은 체육복 0벌
+    for l in lost {
+        students[l-1] = 0
+    }
+    // 여벌 가져 온 사람은 +1 벌
+    for r in reserve {
+        students[r-1] += 1
+    }
+    
+    var count = 0 // 체육복을 빌리지 못한 학생 수
+    for i in 0..<n {
+        if students[i] == 0 {
+            if i>0 && students[i-1] > 1 {
+                // 앞번호 학생에게 빌린다.
+                students[i] = 1
+                students[i-1] = 1
+            } else if i<n-1 && students[i+1] > 1 {
+                // 뒷번호 학생에게 빌린다.
+                students[i] = 1
+                students[i+1] = 1
+            } else {
+                // 빌리지 못했다.
+                count += 1
+            }
         }
     }
-
-    let bestGenre: [String] = Array(playsByGenre.keys).sorted{
-        return playsByGenre[$0]! > playsByGenre[$1]!
-    }
-
-    var answer: [Int] = []
-    for genre in bestGenre {
-        let IDs = idsByGenre[genre]!.sorted{
-            return plays[$0] > plays[$1]
-        }
-        answer.append(IDs[0])
-        if IDs.count > 1 {
-            answer.append(IDs[1])
-        }
-    }
-    return answer
+    
+    return n - count
 }
 
-solution(["classic", "pop", "classic", "classic", "pop"], [500, 600, 150, 800, 2500])
+solution(3, [3], [1, 3])
