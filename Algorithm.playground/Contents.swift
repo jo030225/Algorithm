@@ -1012,13 +1012,12 @@ import UIKit
 
 func selectionSort(Array: [Int]) -> [Int] {
     var array = Array
+    var minIndex = 0
     
     for i in 0 ..< array.count {
-        var min = array[i]
-        var minIndex = i
+        minIndex = i
         for j in i + 1 ..< array.count {
             if array[minIndex] > array[j] {
-                min = array[j]
                 minIndex = j
             }
         }
