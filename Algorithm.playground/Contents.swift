@@ -1008,3 +1008,24 @@ import UIKit
 //
 //solution(5)
 
+// 선택 정렬
+
+func selectionSort(Array: [Int]) -> [Int] {
+    var array = Array
+    
+    for i in 0 ..< array.count {
+        var min = array[i]
+        var minIndex = i
+        for j in i + 1 ..< array.count {
+            if array[minIndex] > array[j] {
+                min = array[j]
+                minIndex = j
+            }
+        }
+        array.swapAt(i, minIndex)
+    }
+
+    return array
+}
+
+selectionSort(Array: [6,2,3,7,9,10,5,4,8,1])
